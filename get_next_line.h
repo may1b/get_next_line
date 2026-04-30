@@ -6,7 +6,7 @@
 /*   By: magrass <magrass@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:29 by magrass           #+#    #+#             */
-/*   Updated: 2026/04/28 10:56:21 by magrass          ###   ########.fr       */
+/*   Updated: 2026/04/30 03:34:29 by magrass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 #  define  BUFFER_SIZE 1024
 # endif
 
-#include <unistd.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
+
+size_t	ft_memcpy(void *dest, const void *src, size_t n);
+
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
