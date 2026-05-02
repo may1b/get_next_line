@@ -6,7 +6,7 @@
 /*   By: magrass <magrass@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:50 by magrass           #+#    #+#             */
-/*   Updated: 2026/05/02 13:00:24 by magrass          ###   ########.fr       */
+/*   Updated: 2026/05/02 15:45:21 by magrass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dest && !src)
+	if (!dest || !src)
 		return (dest);
 	i = 0;
 	while (i < n)
@@ -50,6 +50,8 @@ void	ft_str_merge(char **merge_into, char *to_merge)
 	size_t	j;
 
 	new_str = malloc(ft_strlen(*merge_into) + ft_strlen(to_merge) + 1);
+	if (!new_str)
+		return ((void)free(*merge_into));
 	i = 0;
 	while (*merge_into && (*merge_into)[i])
 	{
