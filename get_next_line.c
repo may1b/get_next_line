@@ -6,7 +6,7 @@
 /*   By: magrass <magrass@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:37 by magrass           #+#    #+#             */
-/*   Updated: 2026/05/02 14:24:55 by magrass          ###   ########.fr       */
+/*   Updated: 2026/05/02 16:04:57 by magrass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <unistd.h>
-#ifdef TESTING
-# include <fcntl.h>
-#endif
 
 char	*get_first_line(char *ptr, bool is_buf)
 {
@@ -86,28 +83,3 @@ char	*get_next_line(int fd)
 	rm_before_first_endl(sizeof(buf), buf);
 	return (get_first_line(return_ptr, false));
 }
-
-#ifdef TESTING
-
-int	main(int argc, char *argv[])
-{
-	int		fd;
-	char	*next_line;
-
-	if (argc != 2)
-	{
-		write(1, "2 arguments pls\n", 16);
-		return (1);
-	}
-	fd = open(argv[1], O_RDONLY);
-	while (true)
-	{
-		next_line = get_next_line(fd);
-		if (!next_line || !next_line[0])
-			break ;
-		write(1, next_line, ft_strlen(next_line));
-		free(next_line);
-	}
-}
-
-#endif
