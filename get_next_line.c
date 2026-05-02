@@ -6,7 +6,7 @@
 /*   By: magrass <magrass@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:37 by magrass           #+#    #+#             */
-/*   Updated: 2026/05/02 16:04:57 by magrass          ###   ########.fr       */
+/*   Updated: 2026/05/02 16:30:57 by magrass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stddef.h>
 #include <unistd.h>
 
-char	*get_first_line(char *ptr, bool is_buf)
+static char	*get_first_line(char *ptr, bool is_buf)
 {
 	size_t	i;
 	char	*line;
@@ -39,7 +39,7 @@ char	*get_first_line(char *ptr, bool is_buf)
 	return (line);
 }
 
-void	rm_before_first_endl(size_t bSize, char buf[static bSize])
+static void	rm_before_first_endl(size_t bSize, char buf[static bSize])
 {
 	size_t	i;
 	size_t	j;
